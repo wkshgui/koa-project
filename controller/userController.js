@@ -1,3 +1,6 @@
+const { User } = require("../model");
+
 module.exports.index = async(ctx, next)=>{
-    ctx.body = "user index";
+    const user = await User.findById(ctx.params.userId);
+    ctx.body = user;
 }

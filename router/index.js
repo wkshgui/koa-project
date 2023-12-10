@@ -1,8 +1,7 @@
 const Router = require("@koa/router");
 const router = new Router({prefix: "/api/v1"});
 
-const userController = require("../controller/userController");
-
-router.get("/user", userController.index);
+router.use("/user", require("./user").routes());
+router.use("/video", require("./video").routes());
 
 module.exports = router;
